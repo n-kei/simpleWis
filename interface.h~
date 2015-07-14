@@ -1,0 +1,86 @@
+#ifndef _INTERFACE_H_INCLUDED
+#define _INTERFACE_H_INCLUDED
+
+#define INTERFACE_STATE_NUM 9
+#define TITLE_STATE_NUM     3
+#define CASTLE_STATE_NUM    3
+#define INN_STATE_NUM       2
+#define STORE_STATE_NUM     4
+#define WASTELAND_STATE_NUM 5
+#define BATTLE_STATE_NUM    3
+
+/////////////インターフェースの状態管理変数///////////////////
+ 
+enum StateOfInterface {
+  TITLE = 0,
+  CASTLE,
+  INN,
+  STORE,
+  WASTELAND,
+  DUNGEON,
+  BATTLE,
+  INVENTORY,
+  STATUS
+};
+
+extern enum StateOfInterface cur_interface_state;
+///////////////////////////////////////////////////////////
+
+///////////////タイトルの状態管理変数//////////////////////////
+enum StateOfTitle {
+  START = 0,
+  LOAD,
+  END
+};
+
+extern enum StateOfInterface cur_title_state;
+/////////////////////////////////////////////////////////////
+
+///////////////////城の状kou
+enum StateOfCastle {
+  INN = 2,
+  STORE,
+  WASTELAND
+};
+
+extern enum StateOfCastle cur_castle_state;
+
+
+enum StateOfInn {
+  STAY = 0,
+  CASTLE,
+};
+
+extern enum StateOfInn cur_inn_state;
+
+
+enum StateOfStore {
+  BUY = 0,
+  SELL,
+  INVENTORY,
+  CASTLE,
+};
+
+extern enum StateOfStore cur_store_state;
+
+
+enum StateOfWasteland {
+  DUNGEON = 0,
+  CASTLE,
+  STATUS,
+  SAVE,
+  END,
+};
+
+extern enum StateOfWasteland cur_wasteland_state;
+
+
+enum StateOfBattle {
+  ATTACK = 0,
+  INVENTORY,
+  RUNAWAY,
+};
+
+extern enum StateOfBattle cur_battle_state;
+
+#endif

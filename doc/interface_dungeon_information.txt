@@ -1,0 +1,7 @@
+textarea:
+sx = 14	sy = 625
+ex = 840   ey = 941
+
+screenarea:
+sx = 0	sy = 0
+ex = 840   ey = 613

@@ -1,0 +1,98 @@
+#ifndef _DUNGEON_INCLUDED_
+#define _DUNGEON_INCLUDED_
+  
+#include "ppmimage.h"
+
+#define DUNGEON_CANT_MOVE        -1
+#define DUNGEON_CAN_MOVE         0
+#define DUNGEON_DIRECTION_CONSTANT   400
+#define DUNGEON_DIRECTION_KEY        4
+
+#define WALL          0
+#define ROAD          1
+#define STEP_UP       2
+#define STEP_DOWN     3
+#define DOOR          4
+     
+#define NORTH          0
+#define EAST           1
+#define SOUTH          2
+#define WEST           3
+
+#define MAP_LON       10
+#define MAP_BES       10
+
+#define WALL_PICK_SIZE  15
+#define SCREEN_LON    360
+#define SCREEN_BES    500
+
+
+typedef struct {
+  int map[MAP_LON][MAP_BES];
+  int wall_pick[WALL_PICK_SIZE];
+  int direction;
+
+  struct{
+    int x;
+    int y;
+  } current;
+
+  unsigned int aitemstep_cnt;
+  unsigned int monsterstep_cnt;
+  unsigned int aitemstep_op;
+  unsigned int monsterstep_op;
+  int boss;
+} DUNGEON_MAP;
+
+			      
+/*
+  名前 : display_text
+  概要 : タイトル領域に文字を出力する関数
+  引数 : int text_area     テキストを出力する領域
+  返値 : なし
+*/
+
+
+int GetRandom(int min, int max);
+
+int dungeon_move(DUNGEON_MAP *);
+
+/*
+  名前 : display_text
+  概要 : タイトル領域に文字を出力する関数
+  引数 : int text_area     テキストを出力する領域
+  返値 : なし
+*/
+
+int dungeon_free_map(DUNGEON_MAP *);
+
+/*
+  名前 : display_text
+  概要 : タイトル領域に文字を出力する関数
+  引数 : int text_area     テキストを出力する領域
+  返値 : なし
+*/
+
+int dungeon_make_map(DUNGEON_MAP *);
+
+/*
+  名前 : display_text
+  概要 : タイトル領域に文字を出力する関数
+  引数 : int text_area     テキストを出力する領域
+  返値 : なし
+*/
+
+void dungeon_init_map(DUNGEON_MAP *);
+
+void serach_table(DUNGEON_MAP *);
+
+void serach_n(DUNGEON_MAP *);
+
+void serach_e(DUNGEON_MAP *);
+
+void serach_s(DUNGEON_MAP *);
+
+void serach_w(DUNGEON_MAP *);
+
+void make_view(DUNGEON_MAP *, PpmImage *);
+# endif
